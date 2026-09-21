@@ -864,7 +864,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	 * Checks if a given REST request has access to update a comment.
 	 *
 	 * @since 4.7.0
-	 * @since 7.1.0 Target post permissions are checked when a comment's parent post is changed.
+	 * @since 7.1.1 Target post permissions are checked when a comment's parent post is changed.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to update the item, error object otherwise.
@@ -2071,7 +2071,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	 * comment or note, so that attaching content to a post is authorized the same
 	 * way whichever path it arrives by.
 	 *
-	 * @since 7.1.0
+	 * @since 7.1.1
 	 *
 	 * @param int             $post_id Target post ID.
 	 * @param WP_REST_Request $request Full details about the request.
@@ -2172,17 +2172,15 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	 */
 	private function check_post_type_supports_notes( $post_type ) {
 		$supports = get_all_post_type_supports( $post_type );
+
 		if ( ! isset( $supports['editor'] ) ) {
 			return false;
 		}
+
 		if ( ! is_array( $supports['editor'] ) ) {
 			return false;
 		}
-		foreach ( $supports['editor'] as $item ) {
-			if ( ! empty( $item['notes'] ) ) {
-				return true;
-			}
-		}
-		return false;
+
+		return array_any( $supports['editor'], fn( $item ) => ! empty( $item['notes'] ) );
 	}
 }

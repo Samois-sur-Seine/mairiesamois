@@ -760,7 +760,7 @@ msgid "A view configuration patch must declare a supported schema version."
 msgstr "Un correctif de configuration de vue doit déclarer une version de schéma prise en charge."
 
 #. translators: 1: oembed_providers, 2: The oEmbed provider URL pattern.
-#: wp-includes/class-wp-oembed.php:240
+#: wp-includes/class-wp-oembed.php:237
 msgid "The oEmbed provider data returned by the %1$s filter at key %2$s is malformed. The providers array must be a mapping of provider URL patterns to a tuple array consisting of a provider endpoint URL string at index 0 and an optional boolean regex flag at index 1."
 msgstr "Les données du fournisseur oEmbed retournées par le filtre %1$s à la clé %2$s ne sont pas bien formées. Le tableau du fournisseur doit correspondre à un motif d’URL du fournisseur dans un tableau contenant un point de terminaison d’URL à l’index 0 et un booléen optionnel de regex à l’index 1."
 
@@ -2271,11 +2271,11 @@ msgstr "Le champ user_pass est obligatoire lors de la création d’un nouveau c
 
 #. translators: %s is the throwable class name
 #. translators: %s is the class name
-#: wp-includes/template.php:1026 wp-includes/template.php:1065
+#: wp-includes/template.php:1092 wp-includes/template.php:1131
 msgid "Uncaught \"%s\" thrown:"
 msgstr "Une erreur « %s » non détectée a été déclenchée :"
 
-#: wp-includes/template.php:975
+#: wp-includes/template.php:1041
 msgid "User error triggered:"
 msgstr "Erreur côté utilisateur·ice déclenchée :"
 
@@ -3882,7 +3882,7 @@ msgctxt "block description"
 msgid "Reuse this design across your site."
 msgstr "Réutilisez ce design sur votre site."
 
-#: wp-includes/js/dist/editor.js:101469 wp-admin/about.php:178
+#: wp-includes/js/dist/editor.js:101469 wp-admin/about.php:198
 msgid "Accessibility"
 msgstr "Accessibilité"
 
